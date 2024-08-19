@@ -1,0 +1,31 @@
+TODO:
+1) Деление матриц
+2) Опрделитель матриц
+3) Обратная матрица
+4) Поставить провекрку в функции на очерёдность вектора и матрицы
+5) Реализовать файл с работой над комплексными числами
+*6) Реализовать файл над работ с функциями
+	
+
+TEST:
+	Matrix_x test(4, "column");
+	Matrix_xy help_test(4, 3);
+	//Matrix_xy help_test_2(4, 3);
+
+	test.matrix_rand();
+	test.show_matrix();
+
+	help_test.matrix_rand();
+	help_test.show_matrix();
+
+	//help_test_2.matrix_rand();
+	//help_test_2.show_matrix();
+
+	MultiplicationMatrix(help_test, 2);
+	help_test.show_matrix();
+
+	Matrix_x test_test = MultiplicationMatrix(test, help_test);
+	test_test.show_matrix();
+
+	help_test.transporation();
+	help_test.show_matrix();
