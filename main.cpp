@@ -36,14 +36,15 @@ int main()
 	int matrix_1[3] = {
 		1, 2, 3
 	},
-		matrix_2[3][3] = {
-			{4, 2, 3},
-			{5, 4, 78},
-			{5, 8, 9}
+		matrix_2[4][4] = {
+			{5, 3, 1, 2},
+			{3, -1, 1, 2},
+			{1, 2, 4, 8},
+			{3, -1, 1, 2}
 	};
 
 	//MatrixRow Row_test_1(3);
-	Matrix Matrix_test_2(3, 3);
+	Matrix Matrix_test_2(4, 4);
 
 	//for (int i = 0; i < Row_test_1.GetRowSize(); i++)
 	//{
@@ -67,15 +68,21 @@ int main()
 	//MatrixRow Matrix_test_3 = MultiplicationMatrix(Row_test_1, Matrix_test_2);
 	//Matrix_test_3.MatrixShow();
 
+	//Matrix_test_2.MatrixShow();
+	//cout << Matrix_test_2.GetDeterminant() << endl << endl;
+	//Matrix_test_2.Transporation();
+	//Matrix_test_2.MatrixShow();
+	//cout << Matrix_test_2.GetDeterminant() << endl << endl;
+	//Matrix_test_2.Transporation();
+	//Matrix_test_2.MatrixShow();
+	//cout << Matrix_test_2.GetDeterminant() << endl << endl;
+	
+	//Matrix_test_2.MatrixRand();
 	Matrix_test_2.MatrixShow();
-	cout << Matrix_test_2.GetDeterminant() << endl << endl;
+	cout << Matrix_test_2.GetRank() << endl << endl;
 	Matrix_test_2.Transporation();
 	Matrix_test_2.MatrixShow();
-	cout << Matrix_test_2.GetDeterminant() << endl << endl;
-	Matrix_test_2.Transporation();
-	Matrix_test_2.MatrixShow();
-	cout << Matrix_test_2.GetDeterminant() << endl << endl;
-
+	cout << Matrix_test_2.GetRank() << endl << endl;
 
 	return 0;
 }
