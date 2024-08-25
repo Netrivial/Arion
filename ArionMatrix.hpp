@@ -289,7 +289,10 @@ public:
 		return Determinant(_Matrix);
 	}
 
-
+	int GetRank()
+	{
+		return Rank(_Matrix);
+	}
 };
 const Matrix ErrorMatrix(2, 2);
 
