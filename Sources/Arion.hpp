@@ -11,3 +11,4 @@
 
 #pragma once
 #include "Arion_Matrix/ArionMatrix.hpp"
+#include "Arion_MathFunctions/ImportMathFunctions.hpp"
