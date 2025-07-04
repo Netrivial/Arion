@@ -11,4 +11,5 @@ add_executable(Arion
 			Sources/Arion_Matrix/Arion_MatrixFunctions/ArionMatrixDeterminant.cpp
 			Sources/Arion_Matrix/Arion_MatrixFunctions/ArionMatrixRank.cpp
 			Sources/Arion_MathFunctions/ImportMathFunctions.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Factorial.hpp)
+			Sources/Arion_MathFunctions/MathFunctions/Factorial.hpp
+			Sources/Arion_MathFunctions/MathFunctions/Subfactorial.hpp)

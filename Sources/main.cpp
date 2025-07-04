@@ -92,7 +92,7 @@ int main()
 		cin >> TestVar;
 		cout << endl << endl;
 
-		cout << Factorial(TestVar);
+		cout << Subfactorial(TestVar);
 		cout << endl << endl;
 	}
 
