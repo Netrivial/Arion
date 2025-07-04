@@ -16,3 +16,11 @@ const int MinZ = -1000;
 
 const int ErrorInt = -1;
 const double ErrorDouble = -1;
+
+const long long MaxLim = 1e15;
+const long long MinLim = 1e-15;
+
+
+// MATH CONSTS
+
+const long double e = 2.71;

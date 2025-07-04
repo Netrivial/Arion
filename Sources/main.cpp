@@ -1,11 +1,14 @@
 #include <iostream>
 #include "Arion.hpp"
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
 int main()
 {
+	cout << fixed << setprecision(10);
+
 	//MatrixRow Row(7);
 	//MatrixColumn Column(7);
 	//Matrix _Matrix(4, 4);
@@ -86,15 +89,19 @@ int main()
 	//Matrix_test_2.MatrixShow();
 	//cout << Matrix_test_2.GetRank() << endl << endl;
 
-	while (true)
-	{
-		int TestVar;
-		cin >> TestVar;
-		cout << endl << endl;
+	//while (true)
+	//{
+	//	int TestVar;
+	//	cin >> TestVar;
+	//	cout << endl << endl;
 
-		cout << Subfactorial(TestVar);
-		cout << endl << endl;
-	}
+	//	cout << Subfactorial(TestVar);
+	//	cout << endl << endl;
+	//}
+
+	cout << Exp(1) << endl;
+	cout << Exp(2) << endl;
+	cout << Exp(5) << endl;
 
 	return 0;
 }
