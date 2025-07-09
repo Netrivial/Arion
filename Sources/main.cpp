@@ -99,9 +99,29 @@ int main()
 	//	cout << endl << endl;
 	//}
 
-	cout << Exp(1) << endl;
-	cout << Exp(2) << endl;
-	cout << Exp(5) << endl;
+	//cout << Exp(1) << endl;
+	//cout << Exp(2) << endl;
+	//cout << Exp(5) << endl;
+
+	while (true)
+	{
+		long double Val = 0;
+		bool Flag = 1;
+		cin >> Val;
+		cin >> Flag; 
+
+		if (Flag)
+		{
+			Flag = true;
+		}
+		else
+		{
+			Flag = false;
+		}
+
+
+		cout << Sin(Val, Flag) << endl;
+	}
 
 	return 0;
 }

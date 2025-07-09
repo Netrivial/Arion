@@ -23,4 +23,5 @@ const long long MinLim = 1e-15;
 
 // MATH CONSTS
 
-const long double e = 2.71;
+const long double E = 2.718281828459;
+const long double Pi = 3.141592653589793;
