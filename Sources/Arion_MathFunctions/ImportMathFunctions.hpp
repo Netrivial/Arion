@@ -8,4 +8,5 @@
 #include "MathFunctions/Factorial.hpp"
 #include "MathFunctions/Subfactorial.hpp"
 #include "MathFunctions/Exp.hpp"
-#include "MathFunctions/Sin.hpp"
+#include "MathFunctions/Trigonometry/Sin.hpp"
+#include "MathFunctions/Trigonometry/Cos.hpp"

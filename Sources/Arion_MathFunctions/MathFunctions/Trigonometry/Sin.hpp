@@ -1,14 +1,12 @@
 #pragma once
 
-#include <iostream>
-#include "../../ArionConsts.hpp"
-#include "Factorial.hpp"
+#include "../Factorial.hpp"
 using namespace std;
 
 
 long double Sin(long double Value, bool IsDegree = true)
 {
-    long long Lim = 15;
+    long long Lim = 10;
     long double Sum = 0;
 
     if (!IsDegree)
@@ -21,6 +19,11 @@ long double Sin(long double Value, bool IsDegree = true)
 
     if (IsDegree)
     {
+        if (Value >= 360)
+        {
+            Value -= 360 * ((int)Value / 360);
+        }
+
         if (fmod(Value / 180, 1) == 0)
         {
             return 0;

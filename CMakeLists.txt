@@ -14,4 +14,5 @@ add_executable(Arion
 			Sources/Arion_MathFunctions/MathFunctions/Factorial.hpp
 			Sources/Arion_MathFunctions/MathFunctions/Subfactorial.hpp
 			Sources/Arion_MathFunctions/MathFunctions/Exp.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Sin.hpp)
+			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Sin.hpp
+			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Cos.hpp)

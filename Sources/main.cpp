@@ -120,7 +120,8 @@ int main()
 		}
 
 
-		cout << Sin(Val, Flag) << endl;
+		cout << Cos(Val, Flag) << endl;
+		cout << pow(Sin(Val, Flag), 2) + pow(Cos(Val, Flag), 2) << endl;
 	}
 
 	return 0;
