@@ -6,7 +6,7 @@ using namespace std;
 
 double long Cos(long double Value, bool IsDegree = true)
 {
-    long long Lim = 11;
+    long long Lim = 10;
     long double Sum = 0;
 
     if (!IsDegree)
@@ -31,6 +31,7 @@ double long Cos(long double Value, bool IsDegree = true)
 
         Value = Value * Pi / 180;
     }
+
 
     for (long long Count = 0; Count < Lim; Count++)
     {

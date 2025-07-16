@@ -1,7 +1,11 @@
 #pragma once
 
-//const int POSITIVE_INF = 18446744073709551615;
-//const int NEGATIVE_INF = -18446744073709551615;
+#include <cmath>
+
+const long double NotANumber = NAN;
+const long double POSITIVE_INF = INFINITY;
+const long double NEGATIVE_INF = -INFINITY;
+const long double INF = INFINITY;
 
 const int MaxRow = 1000;
 const int MaxX = 1000;

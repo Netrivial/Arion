@@ -10,5 +10,6 @@
 // /___/_/          \___\_\    |__|_|     \__\_\    |____|_|      \___________/__/     |____|_|    \_______|_|
 
 #pragma once
+#include "ArionConsts.hpp"
 #include "Arion_Matrix/ArionMatrix.hpp"
 #include "Arion_MathFunctions/ImportMathFunctions.hpp"
