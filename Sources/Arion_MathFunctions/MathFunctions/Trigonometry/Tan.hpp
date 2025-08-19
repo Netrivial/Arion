@@ -7,7 +7,6 @@ using namespace std;
 
 long double Tan(long double Value, bool IsDegree = true)
 {
-    long long Lim = 10;
     long double Sum = 0;
 
     if (!IsDegree)
