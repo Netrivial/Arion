@@ -11,3 +11,4 @@
 #include "MathFunctions/Trigonometry/Sin.hpp"
 #include "MathFunctions/Trigonometry/Cos.hpp"
 #include "MathFunctions/Trigonometry/Tan.hpp"
+#include "MathFunctions/Trigonometry/Ctg.hpp"
