@@ -29,3 +29,4 @@ const long long MinLim = 1e-15;
 
 const long double E = 2.718281828459;
 const long double Pi = 3.141592653589793;
+const long double Ln10 = 2.302585092994046;
