@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "Factorial.hpp"
 using namespace std;
 
