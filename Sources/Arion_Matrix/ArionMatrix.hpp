@@ -3,8 +3,8 @@
 #include <random>
 #include <ctime>
 #include "../ArionConsts.hpp"
-#include "Arion_MatrixFunctions/ArionMatrixDeterminant.cpp"
-#include "Arion_MatrixFunctions/ArionMatrixRank.cpp"
+#include "ArionMatrixFunctions/ArionMatrixDeterminant.cpp"
+#include "ArionMatrixFunctions/ArionMatrixRank.cpp"
 using namespace std;
 
 
@@ -282,7 +282,7 @@ public:
 
 		if (RowSize != ColumnSize || RowSize == 0 || ColumnSize == 0)
 		{
-			cout << "Ìàòðèöà íå êâàäðàòíàÿ! (áóäåò âîçðàùåíà -1)" << endl << endl;
+			cout << "ÃŒÃ Ã²Ã°Ã¨Ã¶Ã  Ã­Ã¥ ÃªÃ¢Ã Ã¤Ã°Ã Ã²Ã­Ã Ã¿! (Ã¡Ã³Ã¤Ã¥Ã² Ã¢Ã®Ã§Ã°Ã Ã¹Ã¥Ã­Ã  -1)" << endl << endl;
 			return ErrorDouble;
 		}
 
