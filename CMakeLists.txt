@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.31.6 FATAL_ERROR)
 
-project(Arion VERSION 0.1.1)
+project(Arion VERSION 0.1.2)
 
 add_executable(Arion 
 			Sources/main.cpp
 			Sources/Arion.hpp 
 			Sources/ArionConsts.hpp
-			Sources/Arion_Matrix/ArionMatrix.cpp
-			Sources/Arion_Matrix/ArionMatrix.hpp
-			Sources/Arion_Matrix/Arion_MatrixFunctions/ArionMatrixDeterminant.cpp
-			Sources/Arion_Matrix/Arion_MatrixFunctions/ArionMatrixRank.cpp
-			Sources/Arion_MathFunctions/ImportMathFunctions.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Factorial.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Subfactorial.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Exp.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Sin.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Cos.hpp
-			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Tan.hpp
-   			Sources/Arion_MathFunctions/MathFunctions/Trigonometry/Ctg.hpp)
+			Sources/ArionMatrix/ArionMatrix.cpp
+			Sources/ArionMatrix/ArionMatrix.hpp
+			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixDeterminant.cpp
+			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixRank.cpp
+			Sources/ArionMathFunctions/MathFunctions.hpp
+			Sources/ArionMathFunctions/MathFunctions/Factorial.hpp
+			Sources/ArionMathFunctions/MathFunctions/Subfactorial.hpp
+			Sources/ArionMathFunctions/MathFunctions/Exp.hpp
+			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Sin.hpp
+			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Cos.hpp
+			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Tan.hpp
+   			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Ctg.hpp)
