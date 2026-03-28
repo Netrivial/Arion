@@ -1,13 +1,13 @@
-#include <iostream>
-#include "Arion.hpp"
-#include <string>
-#include <iomanip>
+//#include <iostream>
+//#include "Arion.hpp"
+//#include <string>
+//#include <iomanip>
+//
+//using namespace std;
 
-using namespace std;
-
-int main()
-{
-	cout << fixed << setprecision(10);
+//int main()
+//{
+//	cout << fixed << setprecision(10);
 
 	//MatrixRow Row(7);
 	//MatrixColumn Column(7);
@@ -103,25 +103,25 @@ int main()
 	//cout << Exp(2) << endl;
 	//cout << Exp(5) << endl;
 
-	while (true)
-	{
-		long double Val = 0;
-		bool Flag = 1;
-		cin >> Val;
-		cin >> Flag; 
-
-		if (Flag)
-		{
-			Flag = true;
-		}
-		else
-		{
-			Flag = false;
-		}
-
-
-		cout << Tan(Val, Flag) << endl;
-	}
-
-	return 0;
-}
+//	while (true)
+//	{
+//		long double Val = 0;
+//		bool Flag = 1;
+//		cin >> Val;
+//		cin >> Flag; 
+//
+//		if (Flag)
+//		{
+//			Flag = true;
+//		}
+//		else
+//		{
+//			Flag = false;
+//		}
+//
+//
+//		cout << Tan(Val, Flag) << endl;
+//	}
+//
+//	return 0;
+//}
