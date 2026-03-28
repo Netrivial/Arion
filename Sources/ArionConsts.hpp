@@ -18,9 +18,6 @@ const int MinY = -1000;
 const int MaxZ = 1000;
 const int MinZ = -1000;
 
-const int ErrorInt = -1;
-const double ErrorDouble = -1;
-
 const long long MaxLim = 1e15;
 const long long MinLim = 1e-15;
 
