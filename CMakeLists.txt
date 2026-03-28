@@ -8,6 +8,7 @@ add_executable(Arion
 			Sources/ArionConsts.hpp
 			Sources/ArionMatrix/ArionMatrix.cpp
 			Sources/ArionMatrix/ArionMatrix.hpp
+			Sources/ArionMatrix/ArionVectorRow.cpp
 			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixDeterminant.cpp
 			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixRank.cpp
 			Sources/ArionMathFunctions/MathFunctions.hpp
@@ -17,4 +18,5 @@ add_executable(Arion
 			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Sin.hpp
 			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Cos.hpp
 			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Tan.hpp
-   			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Ctg.hpp)
+   			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Ctg.hpp 
+			Sources/tests.cpp)
