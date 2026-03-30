@@ -80,18 +80,18 @@ void ArionMatrix::VectorRow::VectorShow()
 {
 	if (_Type == "Row")
 	{
-		for (std::size_t Index = 0; Index < _RowSize; Index++)
+		for (double Element : _Vector)
 		{
-			std::cout << _Vector[Index] << " ";
+			std::cout << Element << " ";
 		}
 		std::cout << std::endl << std::endl;
 	}
 
 	if (_Type == "Column")
 	{
-		for (int i = 0; i < _RowSize; i++)
+		for (double Element : _Vector)
 		{
-			std::cout << _Vector[i] << std::endl;
+			std::cout << Element << std::endl;
 		}
 		std::cout << std::endl;
 	}
@@ -148,10 +148,22 @@ double ArionMatrix::VectorRow::VectorNorm()
 {
 	double ScalarProduct = 0;
 
-	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	for (double Element : _Vector)
 	{
-		ScalarProduct += std::pow(_Vector[Index], 2);
+		ScalarProduct += std::pow(Element, 2);
 	}
 
 	return std::sqrt(ScalarProduct);
+}
+
+double ArionMatrix::VectorRow::ManhattanNorm()
+{
+	double Sum = 0;
+
+	for (double Element : _Vector)
+	{
+		Sum += std::abs(Element);
+	}
+
+	return Sum;
 }

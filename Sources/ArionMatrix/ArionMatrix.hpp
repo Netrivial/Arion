@@ -12,6 +12,10 @@ namespace ArionMatrix
 	double Determinant(std::vector <std::vector <double>> Matrix); // Determinant of matrix
 	int Rank(std::vector<std::vector<double>> Matrix); // Rank of matrix
 
+	// for the future (will be soon):
+	// double VectorNorm(); for two vectors (i wanna kill myself :(  )
+	// double ManhattanNorm(); // L_1 norm distance
+
 
 	class VectorRow // Row
 	{
@@ -57,6 +61,8 @@ namespace ArionMatrix
 		void Transporation();
 
 		double VectorNorm(); // Length of a vector
+
+		double ManhattanNorm(); // L_1 norm
 	};
 
 
@@ -101,9 +107,11 @@ namespace ArionMatrix
 
 		// Functions for working with linear transformations
 
-		void Transporation();
+		void Transporation(); 
 
 		double VectorNorm(); // Length of a vector
+
+		double ManhattanNorm(); // L_1 norm
 	};
 }
 

@@ -26,11 +26,12 @@ int main()
 
 	//cout << endl << Vec1.GetType() << endl;
 
-	//Vec1.Transporation();
+	Vec1.Transporation();
 	//Vec1.VectorShow();
 	//cout << endl << Vec1.GetType() << endl;
 
-	//cout << endl << Vec1.VectorNorm() << endl;
+	cout << endl << Vec1.VectorNorm() << endl;
+	cout << endl << Vec1.ManhattanNorm() << endl;
 
 	Vec1.Reverse();
 	Vec1.VectorShow();
