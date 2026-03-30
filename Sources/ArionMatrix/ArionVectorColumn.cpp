@@ -6,44 +6,44 @@ using namespace ArionMatrix;
 
 // Basic functions for working with row vectors
 
-ArionMatrix::VectorRow::VectorRow() : _RowSize(MaxRow), _Vector(MaxRow)
+ArionMatrix::VectorColumn::VectorColumn() : _ColumnSize(MaxColumn), _Vector(MaxColumn)
 {
-	for (std::size_t Index = 0; Index < MaxRow; Index++)
+	for (std::size_t Index = 0; Index < MaxColumn; Index++)
 	{
 		_Vector[Index] = 0;
 	}
 }
 
-ArionMatrix::VectorRow::VectorRow(int RowSize) : _RowSize(RowSize), _Vector(RowSize)
+ArionMatrix::VectorColumn::VectorColumn(int ColumnSize) : _ColumnSize(ColumnSize), _Vector(ColumnSize)
 {
-	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	for (std::size_t Index = 0; Index < _ColumnSize; Index++)
 	{
 		_Vector[Index] = 0;
 	}
 }
 
-void ArionMatrix::VectorRow::VectorRand()
+void ArionMatrix::VectorColumn::VectorRand()
 {
 	srand(time(nullptr));
 
-	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	for (std::size_t Index = 0; Index < _ColumnSize; Index++)
 	{
 		_Vector[Index] = rand() % 10;
 	}
 }
 
-void ArionMatrix::VectorRow::NormalizeSize()
+void ArionMatrix::VectorColumn::NormalizeSize()
 {
-	_RowSize = _Vector.size();
+	_ColumnSize = _Vector.size();
 }
 
-void ArionMatrix::VectorRow::SetVector(std::vector<double> Vector)
+void ArionMatrix::VectorColumn::SetVector(std::vector<double> Vector)
 {
 	_Vector = Vector;
 	NormalizeSize();
 }
 
-void ArionMatrix::VectorRow::AddElementByNumber(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::VectorColumn::AddElementByNumber(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{
@@ -56,7 +56,7 @@ void ArionMatrix::VectorRow::AddElementByNumber(int Number, double Element) // A
 	}
 }
 
-void ArionMatrix::VectorRow::Append(double Element)
+void ArionMatrix::VectorColumn::Append(double Element)
 {
 	_Vector.push_back(Element);
 	NormalizeSize();
@@ -76,11 +76,11 @@ void ArionMatrix::VectorRow::RemoveElementByNumber(int Number) // Attention: the
 	}
 }
 
-void ArionMatrix::VectorRow::VectorShow()
+void ArionMatrix::VectorColumn::VectorShow()
 {
 	if (_Type == "Row")
 	{
-		for (std::size_t Index = 0; Index < _RowSize; Index++)
+		for (std::size_t Index = 0; Index < _ColumnSize; Index++)
 		{
 			std::cout << _Vector[Index] << " ";
 		}
@@ -89,7 +89,7 @@ void ArionMatrix::VectorRow::VectorShow()
 
 	if (_Type == "Column")
 	{
-		for (int i = 0; i < _RowSize; i++)
+		for (int i = 0; i < _ColumnSize; i++)
 		{
 			std::cout << _Vector[i] << std::endl;
 		}
@@ -97,12 +97,12 @@ void ArionMatrix::VectorRow::VectorShow()
 	}
 }
 
-int ArionMatrix::VectorRow::GetRowSize()
+int ArionMatrix::VectorColumn::GetColumnSize()
 {
-	return _RowSize;
+	return _ColumnSize;
 }
 
-double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+double ArionMatrix::VectorColumn::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{
@@ -114,17 +114,17 @@ double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the 
 	}
 }
 
-std::string ArionMatrix::VectorRow::GetType()
+std::string ArionMatrix::VectorColumn::GetType()
 {
 	return _Type;
 }
 
-void ArionMatrix::VectorRow::Reverse()
+void ArionMatrix::VectorColumn::Reverse()
 {
 	std::reverse(_Vector.begin(), _Vector.end());
 }
 
-void ArionMatrix::VectorRow::Clear()
+void ArionMatrix::VectorColumn::Clear()
 {
 	_Vector.clear();
 	NormalizeSize();
@@ -133,7 +133,7 @@ void ArionMatrix::VectorRow::Clear()
 
 // Functions for working with linear transformations
 
-void ArionMatrix::VectorRow::Transporation()
+void ArionMatrix::VectorColumn::Transporation()
 {
 	if (_Type == "Row")
 	{
@@ -144,11 +144,11 @@ void ArionMatrix::VectorRow::Transporation()
 	_Type = "Row";
 }
 
-double ArionMatrix::VectorRow::VectorNorm()
+double ArionMatrix::VectorColumn::VectorNorm()
 {
 	double ScalarProduct = 0;
 
-	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	for (std::size_t Index = 0; Index < _ColumnSize; Index++)
 	{
 		ScalarProduct += std::pow(_Vector[Index], 2);
 	}

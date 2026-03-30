@@ -35,6 +35,10 @@ namespace ArionMatrix
 
 		void AddElementByNumber(int Number, double Element);
 
+		void Append(double Elemnt);
+
+		void RemoveElementByNumber(int Number);
+
 		void VectorShow(); // or ShowVector?
 
 		int GetRowSize();
@@ -42,6 +46,55 @@ namespace ArionMatrix
 		double GetElementByNumber(int Number);
 
 		std::string GetType();
+
+		void Reverse();
+
+		void Clear();
+
+
+		// Functions for working with linear transformations
+
+		void Transporation();
+
+		double VectorNorm(); // Length of a vector
+	};
+
+
+	class VectorColumn // Column
+	{
+		int _ColumnSize;
+		std::string _Type = "Column";
+		std::vector <double> _Vector;
+
+	public:
+
+		// Functions for working with row vectors
+
+		VectorColumn();
+
+		VectorColumn(int _ColumnSize);
+
+		void VectorRand();
+
+		void NormalizeSize();
+
+		void SetVector(std::vector<double> Vector);
+
+		void AddElementByNumber(int Number, double Element);
+
+		void Append(double Elemnt);
+
+		void RemoveElementByNumber(int Number);
+
+		void VectorShow(); // or ShowVector?
+
+		int GetColumnSize();
+
+		double GetElementByNumber(int Number);
+
+		std::string GetType();
+
+		void Reverse();
 
 		void Clear();
 
@@ -53,91 +106,6 @@ namespace ArionMatrix
 		double VectorNorm(); // Length of a vector
 	};
 }
-
-class MatrixColumn
-{
-	int ColumnSize;
-	string Mode = "Column";
-
-public:
-	vector <double> Matrix;
-
-	MatrixColumn() : ColumnSize(MaxColumn), Matrix(MaxColumn)
-	{
-		for (int i = 0; i < MaxColumn; i++)
-		{
-			Matrix[i] = 0;
-		}
-	}
-
-	MatrixColumn(int _ColumnSize) : ColumnSize(_ColumnSize), Matrix(_ColumnSize)
-	{
-		for (int i = 0; i < _ColumnSize; i++)
-		{
-			Matrix[i] = 0;
-		}
-	}
-
-	void MatrixRand()
-	{
-		srand(time(nullptr));
-
-		for (int i = 0; i < ColumnSize; i++)
-		{
-			Matrix[i] = rand() % 10;
-		}
-	}
-
-	void MatrixShow()
-	{
-		if (Mode == "Row")
-		{
-			for (int i = 0; i < ColumnSize; i++)
-			{
-				cout << Matrix[i] << " ";
-			}
-			cout << endl << endl;
-		}
-
-		if (Mode == "Column")
-		{
-			for (int i = 0; i < ColumnSize; i++)
-			{
-				cout << Matrix[i] << endl;
-			}
-			cout << endl;
-		}
-	}
-
-	int GetColumnSize()
-	{
-		return ColumnSize;
-	}
-
-	string GetMode()
-	{
-		return Mode;
-	}
-
-	void NormalizeSize()
-	{
-		ColumnSize = Matrix.size();
-	}
-
-	void Transporation()
-	{
-		if (Mode == "Row")
-		{
-			Mode = "Column";
-			return;
-		}
-
-		if (Mode == "Column")
-		{
-			Mode = "Row";
-		}
-	}
-};
 
 class Matrix
 {
