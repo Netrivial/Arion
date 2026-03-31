@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
+#include <algorithm>
 #include "../ArionConsts.hpp"
 
 // remove soon
@@ -60,9 +61,13 @@ namespace ArionMatrix
 
 		void Transporation();
 
-		double VectorNorm(); // Length of a vector
-
 		double ManhattanNorm(); // L_1 norm
+
+		double VectorNorm(); // L_2 norm: Length of a vector 
+
+		double VectorNormL_p(int p); // L_p norm
+
+		double ChebyshevNorm(); // L_inf
 	};
 
 
@@ -109,9 +114,13 @@ namespace ArionMatrix
 
 		void Transporation(); 
 
-		double VectorNorm(); // Length of a vector
-
 		double ManhattanNorm(); // L_1 norm
+
+		double VectorNorm(); // L_2 norm: Length of a vector
+
+		double VectorNormL_p(int p); // L_p norm
+
+		double ChebyshevNorm(); // L_inf
 	};
 }
 

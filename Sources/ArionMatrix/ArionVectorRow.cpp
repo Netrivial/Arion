@@ -144,6 +144,18 @@ void ArionMatrix::VectorRow::Transporation()
 	_Type = "Row";
 }
 
+double ArionMatrix::VectorRow::ManhattanNorm()
+{
+	double Sum = 0;
+
+	for (double Element : _Vector)
+	{
+		Sum += std::abs(Element);
+	}
+
+	return Sum;
+}
+
 double ArionMatrix::VectorRow::VectorNorm()
 {
 	double ScalarProduct = 0;
@@ -156,14 +168,21 @@ double ArionMatrix::VectorRow::VectorNorm()
 	return std::sqrt(ScalarProduct);
 }
 
-double ArionMatrix::VectorRow::ManhattanNorm()
+double ArionMatrix::VectorRow::VectorNormL_p(int p) // for the future std::pow(Sum, 1.0 / p) ~ AMF::exp(AMF::log(Sum) * 1.0 / p)
 {
-	double Sum = 0;
+	long double Sum = 0;
 
 	for (double Element : _Vector)
 	{
-		Sum += std::abs(Element);
+		Sum += std::pow(std::abs(Element), p);
 	}
 
-	return Sum;
+	return std::pow(Sum, 1.0 / p);
+	// return std::exp(std::log(Sum) * (1.0 / p));
+}
+
+double ArionMatrix::VectorRow::ChebyshevNorm()
+{
+	double MaxElement = *std::max_element(_Vector.begin(), _Vector.end());
+	return MaxElement;
 }
