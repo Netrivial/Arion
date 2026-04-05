@@ -147,11 +147,14 @@ namespace ArionMatrix
 		void SetRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void SetRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
 
-		void SetColumnByNumber(int Number, std::vector <double> Column);
+		void SetColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
+		void SetColumnByNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
-		void AddRowByNumber(int Number);
+		void AddRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
+		void AddRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
 
-		void AddColumnByNumber(int Number);
+		void AddColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
+		void AddColumnBuNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
 		//void MatrixShow()
 		//{
