@@ -6,7 +6,7 @@ using namespace ArionMatrix;
 
 int main()
 {
-	VectorRow Vec1;
+	VectorColumn Vec1;
 	//Vec1.VectorRand();
 	//Vec1.VectorShow();
 
@@ -54,6 +54,12 @@ int main()
 
 	//Vec1.Reverse();
 	//Vec1.VectorShow();
+
+	vector <double> TempVec = Vec1.GetVector();
+	for (double Element : TempVec)
+	{
+		cout << Element << endl;
+	}
 
 	return 0;
 }

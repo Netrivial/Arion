@@ -102,6 +102,11 @@ int ArionMatrix::VectorColumn::GetColumnSize()
 	return _ColumnSize;
 }
 
+std::vector <double> ArionMatrix::VectorColumn::GetVector()
+{
+	return _Vector;
+}
+
 double ArionMatrix::VectorColumn::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
@@ -179,4 +184,10 @@ double ArionMatrix::VectorColumn::VectorNormL_p(int p) // for the future std::po
 
 	return std::pow(Sum, 1.0 / p);
 	// return std::exp(std::log(Sum) * (1.0 / p));
+}
+
+double ArionMatrix::VectorColumn::ChebyshevNorm()
+{
+	double MaxElement = *std::max_element(_Vector.begin(), _Vector.end());
+	return MaxElement;
 }

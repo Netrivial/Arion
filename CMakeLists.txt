@@ -19,4 +19,4 @@ add_executable(Arion
 			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Cos.hpp
 			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Tan.hpp
    			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Ctg.hpp 
-			Sources/tests.cpp "Sources/ArionMatrix/ArionVectorColumn.cpp")
+			Sources/tests.cpp "Sources/ArionMatrix/ArionVectorColumn.cpp" "Sources/ArionMatrix/temp.cpp")

@@ -102,6 +102,11 @@ int ArionMatrix::VectorRow::GetRowSize()
 	return _RowSize;
 }
 
+std::vector <double> ArionMatrix::VectorRow::GetVector()
+{
+	return _Vector;
+}
+
 double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
