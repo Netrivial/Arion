@@ -130,13 +130,15 @@ namespace ArionMatrix
 
 		void NormalizeSizes();
 
+		// setters
 		void SetMatrix(std::vector <std::vector <double>> Matrix);
-
 		void SetRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void SetRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
-
 		void SetColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
 		void SetColumnByNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
+
+		//getters
+		// ...
 
 		void AddRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void AddRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row

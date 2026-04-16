@@ -37,11 +37,43 @@ void ArionMatrix::VectorColumn::NormalizeSize()
 	_ColumnSize = _Vector.size();
 }
 
+
+// setters
 void ArionMatrix::VectorColumn::SetVector(std::vector<double> Vector)
 {
 	_Vector = Vector;
 	NormalizeSize();
 }
+
+
+// getters
+int ArionMatrix::VectorColumn::GetColumnSize()
+{
+	return _ColumnSize;
+}
+
+std::vector <double> ArionMatrix::VectorColumn::GetVector()
+{
+	return _Vector;
+}
+
+double ArionMatrix::VectorColumn::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+{
+	try
+	{
+		return _Vector.at(Number - 1);
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible row vector indices");
+	}
+}
+
+std::string ArionMatrix::VectorColumn::GetType()
+{
+	return _Type;
+}
+
 
 void ArionMatrix::VectorColumn::AddElementByNumber(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
 {
@@ -95,33 +127,6 @@ void ArionMatrix::VectorColumn::VectorShow()
 		}
 		std::cout << std::endl;
 	}
-}
-
-int ArionMatrix::VectorColumn::GetColumnSize()
-{
-	return _ColumnSize;
-}
-
-std::vector <double> ArionMatrix::VectorColumn::GetVector()
-{
-	return _Vector;
-}
-
-double ArionMatrix::VectorColumn::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
-{
-	try
-	{
-		return _Vector.at(Number - 1);
-	}
-	catch (const std::out_of_range& Exception)
-	{
-		throw std::exception("Index out of range of possible row vector indices");
-	}
-}
-
-std::string ArionMatrix::VectorColumn::GetType()
-{
-	return _Type;
 }
 
 void ArionMatrix::VectorColumn::Reverse()
