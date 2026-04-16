@@ -34,7 +34,14 @@ namespace ArionMatrix
 
 		void NormalizeSize();
 
+		// setters
 		void SetVector(std::vector<double> Vector);
+
+		// getters
+		int GetRowSize();
+		std::vector <double> GetVector();
+		double GetElementByNumber(int Number);
+		std::string GetType();
 
 		void AddElementByNumber(int Number, double Element);
 
@@ -44,29 +51,16 @@ namespace ArionMatrix
 
 		void VectorShow(); // or ShowVector?
 
-		int GetRowSize();
-
-		std::vector <double> GetVector();
-
-		double GetElementByNumber(int Number);
-
-		std::string GetType();
-
 		void Reverse();
 
 		void Clear();
 
 
 		// Functions for working with linear transformations
-
 		void Transporation();
-
 		double ManhattanNorm(); // L_1 norm
-
 		double VectorNorm(); // L_2 norm: Length of a vector 
-
 		double VectorNormL_p(int p); // L_p norm
-
 		double ChebyshevNorm(); // L_inf
 	};
 
@@ -89,7 +83,14 @@ namespace ArionMatrix
 
 		void NormalizeSize();
 
+		// setters
 		void SetVector(std::vector<double> Vector);
+
+		// getters
+		int GetColumnSize();
+		std::vector <double> GetVector();
+		double GetElementByNumber(int Number);
+		std::string GetType();
 
 		void AddElementByNumber(int Number, double Element);
 
@@ -99,29 +100,16 @@ namespace ArionMatrix
 
 		void VectorShow(); // or ShowVector?
 
-		int GetColumnSize();
-
-		std::vector <double> GetVector();
-
-		double GetElementByNumber(int Number);
-
-		std::string GetType();
-
 		void Reverse();
 
 		void Clear();
 
 
 		// Functions for working with linear transformations
-
 		void Transporation(); 
-
 		double ManhattanNorm(); // L_1 norm
-
 		double VectorNorm(); // L_2 norm: Length of a vector
-
 		double VectorNormL_p(int p); // L_p norm
-
 		double ChebyshevNorm(); // L_inf
 	};
 
