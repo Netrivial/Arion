@@ -10,15 +10,16 @@ int main()
 	//Vec1.VectorRand();
 	//Vec1.VectorShow();
 
-	vector<double> myvec{1, 2, 3, 4, 6.5};
-	Vec1.SetVector(myvec);
-	Vec1.VectorShow();
 
-	Vec1.AddElementByNumber(5, 5);
-	Vec1.VectorShow();
+	//vector<double> myvec{1, 2, 3, 4, 6.5};
+	//Vec1.SetVector(myvec);
+	//Vec1.VectorShow();
 
-	Vec1.Append(7);
-	Vec1.VectorShow();
+	//Vec1.AddElementByNumber(5, 5);
+	//Vec1.VectorShow();
+
+	//Vec1.Append(7);
+	//Vec1.VectorShow();
 
 	//cout << endl << Vec1.GetRowSize() << endl;
 
@@ -26,25 +27,25 @@ int main()
 
 	//cout << endl << Vec1.GetType() << endl;
 
-	Vec1.Transporation();
+	//Vec1.Transporation();
 	//Vec1.VectorShow();
 	//cout << endl << Vec1.GetType() << endl;
 
-	cout << endl << Vec1.ManhattanNorm() << endl;
-	cout << endl << Vec1.VectorNorm() << endl;
-	cout << endl << Vec1.VectorNormL_p(1) << endl;
-	cout << endl << Vec1.VectorNormL_p(2) << endl;
-	cout << endl << Vec1.VectorNormL_p(3) << endl;
-	cout << endl << Vec1.VectorNormL_p(64) << endl;
-	cout << endl << Vec1.ChebyshevNorm() << endl;
-	cout << endl;
+	//cout << endl << Vec1.ManhattanNorm() << endl;
+	//cout << endl << Vec1.VectorNorm() << endl;
+	//cout << endl << Vec1.VectorNormL_p(1) << endl;
+	//cout << endl << Vec1.VectorNormL_p(2) << endl;
+	//cout << endl << Vec1.VectorNormL_p(3) << endl;
+	//cout << endl << Vec1.VectorNormL_p(64) << endl;
+	//cout << endl << Vec1.ChebyshevNorm() << endl;
+	//cout << endl;
 
 
-	Vec1.Reverse();
-	Vec1.VectorShow();
+	//Vec1.Reverse();
+	//Vec1.VectorShow();
 
-	Vec1.RemoveElementByNumber(4);
-	Vec1.VectorShow(); 
+	//Vec1.RemoveElementByNumber(4);
+	//Vec1.VectorShow(); 
 	 
 	//Vec1.Clear();
 	//Vec1.VectorShow();
@@ -55,11 +56,26 @@ int main()
 	//Vec1.Reverse();
 	//Vec1.VectorShow();
 
-	vector <double> TempVec = Vec1.GetVector();
-	for (double Element : TempVec)
-	{
-		cout << Element << endl;
-	}
+	//vector <double> TempVec = Vec1.GetVector();
+	//for (double Element : TempVec)
+	//{
+	//	cout << Element << endl;
+	//}
+
+	Matrix m{2, 3};
+	m.MatrixRand();
+	m.MatrixShow();
+
+	vector <vector <double>> mvec = { {1, 2, 3},
+									  {4, 5, 6},
+									  {7, 8, 9} };
+	vector <double> row = { 3, 2, 1 };
+
+	m.SetMatrix(mvec);
+	m.MatrixShow();
+	
+	m.SetRowByNumber(1, row);
+	m.MatrixShow();
 
 	return 0;
 }

@@ -3,6 +3,7 @@
 #include <random>
 #include <ctime>
 #include <algorithm>
+// #include <concepts>
 #include "../ArionConsts.hpp"
 
 
@@ -14,6 +15,8 @@ namespace ArionMatrix
 	// for the future (will be soon):
 	// double VectorNorm(); for two vectors (i wanna kill myself :(  )
 	// double ManhattanNorm(); // L_1 norm distance
+
+	// на будущее: отдельно от классов захерачить нормы для векторов/матриц
 
 
 	class VectorRow // Row
@@ -138,11 +141,14 @@ namespace ArionMatrix
 
 		Matrix(int ColumnSize, int RowSize);
 
-		void matrixrand();
+		void MatrixRand();
 
 		void NormalizeSizes();
 
 		void SetMatrix(std::vector <std::vector <double>> Matrix);
+
+		template <typename T>
+		void SetRowByNumber(int Number, T Vector);
 
 		void SetRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void SetRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
@@ -156,18 +162,18 @@ namespace ArionMatrix
 		void AddColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
 		void AddColumnBuNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
-		//void MatrixShow()
-		//{
-		//	for (int i = 0; i < ColumnSize; i++)
-		//	{
-		//		for (int j = 0; j < RowSize; j++)
-		//		{
-		//			std::cout << _Matrix[i][j] << " ";
-		//		}
-		//		std::cout << std::endl;
-		//	}
-		//	std::cout << std::endl;
-		//}
+		void MatrixShow()
+		{
+			for (int i = 0; i < _ColumnSize; i++)
+			{
+				for (int j = 0; j < _RowSize; j++)
+				{
+					std::cout << _Matrix[i][j] << " ";
+				}
+				std::cout << std::endl;
+			}
+			std::cout << std::endl;
+		}
 
 		//int GetRowSize()
 		//{

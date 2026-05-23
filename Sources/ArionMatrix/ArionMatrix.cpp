@@ -32,7 +32,7 @@ ArionMatrix::Matrix::Matrix(int ColumnSize, int RowSize) : _RowSize(RowSize), _C
 	}
 }
 
-void ArionMatrix::Matrix::matrixrand()
+void ArionMatrix::Matrix::MatrixRand()
 {
 	srand(time(nullptr));
 
@@ -58,7 +58,7 @@ void ArionMatrix::Matrix::SetMatrix(std::vector <std::vector <double>> Matrix)
 }
 
 
-	// Set/add rows and coloumn by number (not index!)
+// Set/add rows and coloumn by number (not index!)
 
 void ArionMatrix::Matrix::SetRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
@@ -80,6 +80,7 @@ void ArionMatrix::Matrix::SetRowByNumber(int Number, VectorRow Row) // Attention
 	_Matrix[Number - 1] = Row.GetVector();
 }
 
+
 void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Column) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Column.size() != _ColumnSize)
@@ -90,18 +91,40 @@ void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Colu
 	_Matrix[Number - 1] = Column;
 }
 
-void ArionMatrix::Matrix::SetColumnByNumber(int Number, VectorColumn Column)
+void ArionMatrix::Matrix::SetColumnByNumber(int Number, VectorColumn Column) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Column.GetColumnSize() != _ColumnSize)
 	{
-		throw std::exception("Invalid row vector size");
+		throw std::exception("Invalid column vector size");
 	}
 
 	_Matrix[Number - 1] = Column.GetVector();
 }
 
-void ArionMatrix::Matrix::AddRowByNumber(int Number, std::vector <double> Row)
+
+void ArionMatrix::Matrix::AddRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
-	std::vector <std::vector <double>> Temp;
-	// ...
+	try
+	{
+		_Matrix.insert(_Matrix.begin() + Number - 1, Row);
+		NormalizeSizes();
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible Matrix indices");
+	}
+	
+}
+
+void ArionMatrix::Matrix::AddRowByNumber(int Number, VectorRow Row) // Attention: the number is not equal to the index! (number = index + 1)
+{
+	try
+	{
+		_Matrix.insert(_Matrix.begin() + Number - 1, Row.GetVector());
+		NormalizeSizes();
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible Matrix indices");
+	}
 }
