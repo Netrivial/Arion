@@ -51,15 +51,16 @@ void ArionMatrix::Matrix::NormalizeSizes()
 	_ColumnSize = _Matrix.size();
 }
 
+
+// setters (Warning: Set/add rows and coloumn by number (not index!))
+	// set matrix
 void ArionMatrix::Matrix::SetMatrix(std::vector <std::vector <double>> Matrix)
 {
 	_Matrix = Matrix;
 	NormalizeSizes();
 }
 
-
-// Set/add rows and coloumn by number (not index!)
-
+	// set row
 void ArionMatrix::Matrix::SetRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Row.size() != _RowSize)
@@ -80,7 +81,7 @@ void ArionMatrix::Matrix::SetRowByNumber(int Number, VectorRow Row) // Attention
 	_Matrix[Number - 1] = Row.GetVector();
 }
 
-
+	// set column
 void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Column) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Column.size() != _ColumnSize)
@@ -100,6 +101,10 @@ void ArionMatrix::Matrix::SetColumnByNumber(int Number, VectorColumn Column) // 
 
 	_Matrix[Number - 1] = Column.GetVector();
 }
+
+
+// getters
+// ...
 
 
 void ArionMatrix::Matrix::AddRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)

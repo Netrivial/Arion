@@ -37,11 +37,43 @@ void ArionMatrix::VectorRow::NormalizeSize()
 	_RowSize = _Vector.size();
 }
 
+
+// setters
 void ArionMatrix::VectorRow::SetVector(std::vector<double> Vector)
 {
 	_Vector = Vector;
 	NormalizeSize();
 }
+
+
+// getters
+int ArionMatrix::VectorRow::GetRowSize()
+{
+	return _RowSize;
+}
+
+std::vector <double> ArionMatrix::VectorRow::GetVector()
+{
+	return _Vector;
+}
+
+double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+{
+	try
+	{
+		return _Vector.at(Number - 1);
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible row vector indices");
+	}
+}
+
+std::string ArionMatrix::VectorRow::GetType()
+{
+	return _Type;
+}
+
 
 void ArionMatrix::VectorRow::AddElementByNumber(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
 {
@@ -95,33 +127,6 @@ void ArionMatrix::VectorRow::VectorShow()
 		}
 		std::cout << std::endl;
 	}
-}
-
-int ArionMatrix::VectorRow::GetRowSize()
-{
-	return _RowSize;
-}
-
-std::vector <double> ArionMatrix::VectorRow::GetVector()
-{
-	return _Vector;
-}
-
-double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
-{
-	try
-	{
-		return _Vector.at(Number - 1);
-	}
-	catch (const std::out_of_range& Exception)
-	{
-		throw std::exception("Index out of range of possible row vector indices");
-	}
-}
-
-std::string ArionMatrix::VectorRow::GetType()
-{
-	return _Type;
 }
 
 void ArionMatrix::VectorRow::Reverse()
