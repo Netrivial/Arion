@@ -123,14 +123,14 @@ namespace ArionMatrix
 
 		// Functions for working with linear transformations
 
-		void Transporation(); 
-
+		void Transporation();
+		
 		double ManhattanNorm(); // L_1 norm
-
+		
 		double VectorNorm(); // L_2 norm: Length of a vector
-
+		
 		double VectorNormL_p(int p); // L_p norm
-
+		
 		double ChebyshevNorm(); // L_inf
 	};
 
@@ -156,7 +156,7 @@ namespace ArionMatrix
 
 		void SetRowByNumber(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void SetRowByNumber(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
-
+		
 		void SetColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
 		void SetColumnByNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
@@ -169,7 +169,6 @@ namespace ArionMatrix
 
 		void AddColumnByNumber(int Number, std::vector <double> Column); // for std::vector <double> Column
 		void AddColumnBuNumber(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
-
 
 		void MatrixShow()
 		{
