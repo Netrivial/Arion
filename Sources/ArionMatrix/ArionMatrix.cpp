@@ -89,7 +89,10 @@ void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Colu
 		throw std::exception("Invalid column vector size");
 	}
 
-	_Matrix[Number - 1] = Column;
+	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	{
+		_Matrix[Index][Number - 1] = Column[Index];
+	};
 }
 
 void ArionMatrix::Matrix::SetColumnByNumber(int Number, VectorColumn Column) // Attention: the number is not equal to the index! (number = index + 1)

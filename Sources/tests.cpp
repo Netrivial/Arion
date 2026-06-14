@@ -70,11 +70,20 @@ int main()
 									  {4, 5, 6},
 									  {7, 8, 9} };
 	vector <double> row = { 3, 2, 1 };
+	VectorRow MyRow{ 3 }; MyRow.VectorRand();
+	MyRow.VectorShow();
+	vector <double> column = { 3, 2, 1 };
+	VectorColumn MyColumn{ 3 }; MyColumn.VectorRand();
+	MyColumn.VectorShow();
 
 	m.SetMatrix(mvec);
 	m.MatrixShow();
 	
 	m.SetRowByNumber(1, row);
+	m.MatrixShow();
+	m.SetRowByNumber(2, MyRow);
+	m.MatrixShow();
+	m.SetColumnByNumber(1, column);
 	m.MatrixShow();
 
 	return 0;
