@@ -5,7 +5,7 @@ project(Arion VERSION 0.1.3)
 add_executable(Arion 
 			Sources/main.cpp
 			Sources/Arion.hpp 
-			Sources/ArionConsts.hpp
+			Sources/ArionMathConsts.hpp
 			Sources/ArionMatrix/ArionMatrix.hpp
 			Sources/ArionMatrix/ArionVectorRow.cpp
 			Sources/ArionMatrix/ArionVectorColumn.cpp

@@ -1,12 +1,11 @@
 #include "ArionMatrix.hpp"
-#include "../ArionConsts.hpp"
 
 using namespace ArionMatrix;
 
 
 // Basic functions for working with matrixes
 
-ArionMatrix::Matrix::Matrix() : _RowSize(MaxRow), _ColumnSize(MaxRow), _Matrix(MaxColumn, std::vector <double>(MaxRow))
+ArionMatrix::Matrix::Matrix() : _RowSize(AMC::MaxRow), _ColumnSize(AMC::MaxRow), _Matrix(AMC::MaxColumn, std::vector <double>(AMC::MaxRow))
 {
 	for (size_t ColumnIndex = 0; ColumnIndex < _ColumnSize; ColumnIndex++)
 	{
@@ -61,7 +60,7 @@ void ArionMatrix::Matrix::SetMatrix(std::vector <std::vector <double>> Matrix)
 }
 
 	// set row
-void ArionMatrix::Matrix::SetRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::SetRow(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Row.size() != _RowSize)
 	{
@@ -71,7 +70,7 @@ void ArionMatrix::Matrix::SetRowByNumber(int Number, std::vector <double> Row) /
 	_Matrix[Number - 1] = Row;
 }
 
-void ArionMatrix::Matrix::SetRowByNumber(int Number, VectorRow Row) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::SetRow(int Number, VectorRow Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Row.GetRowSize() != _RowSize)
 	{
@@ -82,7 +81,7 @@ void ArionMatrix::Matrix::SetRowByNumber(int Number, VectorRow Row) // Attention
 }
 
 	// set column
-void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Column) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::SetColumn(int Number, std::vector<double> Column) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Column.size() != _ColumnSize)
 	{
@@ -95,22 +94,40 @@ void ArionMatrix::Matrix::SetColumnByNumber(int Number, std::vector<double> Colu
 	};
 }
 
-void ArionMatrix::Matrix::SetColumnByNumber(int Number, VectorColumn Column) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::SetColumn(int Number, VectorColumn Column) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	if (Column.GetColumnSize() != _ColumnSize)
 	{
 		throw std::exception("Invalid column vector size");
 	}
 
-	_Matrix[Number - 1] = Column.GetVector();
+	std::vector <double> _Column = Column.GetVector();
+	for (std::size_t Index = 0; Index < _RowSize; Index++)
+	{
+		_Matrix[Index][Number - 1] = _Column[Index];
+	};
 }
 
 
 // getters
-// ...
+int ArionMatrix::Matrix::GetRowSize()
+{
+	return _RowSize;
+}
+
+int ArionMatrix::Matrix::GetColumnSize()
+{
+	return _ColumnSize;
+}
+
+std::vector<int> ArionMatrix::Matrix::GetSizes()
+{
+	std::vector<int> Sizes = {_RowSize, _ColumnSize};
+	return Sizes;
+}
 
 
-void ArionMatrix::Matrix::AddRowByNumber(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::AddRow(int Number, std::vector <double> Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{
@@ -124,7 +141,7 @@ void ArionMatrix::Matrix::AddRowByNumber(int Number, std::vector <double> Row) /
 	
 }
 
-void ArionMatrix::Matrix::AddRowByNumber(int Number, VectorRow Row) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::Matrix::AddRow(int Number, VectorRow Row) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{

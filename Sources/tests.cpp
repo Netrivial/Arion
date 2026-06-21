@@ -79,11 +79,11 @@ int main()
 	m.SetMatrix(mvec);
 	m.MatrixShow();
 	
-	m.SetRowByNumber(1, row);
+	m.SetRow(1, row);
 	m.MatrixShow();
-	m.SetRowByNumber(2, MyRow);
+	m.SetRow(2, MyRow);
 	m.MatrixShow();
-	m.SetColumnByNumber(1, column);
+	m.SetColumn(1, column);
 	m.MatrixShow();
 
 	return 0;

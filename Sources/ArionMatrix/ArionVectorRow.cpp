@@ -1,4 +1,3 @@
-#include "../ArionConsts.hpp"
 #include "ArionMatrix.hpp"
 
 using namespace ArionMatrix;
@@ -6,9 +5,9 @@ using namespace ArionMatrix;
 
 // Basic functions for working with row vectors
 
-ArionMatrix::VectorRow::VectorRow() : _RowSize(MaxRow), _Vector(MaxRow)
+ArionMatrix::VectorRow::VectorRow() : _RowSize(AMC::MaxRow), _Vector(AMC::MaxRow)
 {
-	for (std::size_t Index = 0; Index < MaxRow; Index++)
+	for (std::size_t Index = 0; Index < AMC::MaxRow; Index++)
 	{
 		_Vector[Index] = 0;
 	}
@@ -57,7 +56,7 @@ std::vector <double> ArionMatrix::VectorRow::GetVector()
 	return _Vector;
 }
 
-double ArionMatrix::VectorRow::GetElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+double ArionMatrix::VectorRow::GetElement(int Number) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{
@@ -75,7 +74,7 @@ std::string ArionMatrix::VectorRow::GetType()
 }
 
 
-void ArionMatrix::VectorRow::AddElementByNumber(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::VectorRow::Add(int Number, double Element) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{
@@ -94,7 +93,7 @@ void ArionMatrix::VectorRow::Append(double Element)
 	NormalizeSize();
 }
 
-void ArionMatrix::VectorRow::RemoveElementByNumber(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+void ArionMatrix::VectorRow::RemoveElement(int Number) // Attention: the number is not equal to the index! (number = index + 1)
 {
 	try
 	{

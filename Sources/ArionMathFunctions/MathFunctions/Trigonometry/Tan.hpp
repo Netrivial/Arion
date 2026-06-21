@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Factorial.hpp"
-#include "../../../ArionConsts.hpp"
+#include "../../../ArionMathConsts.hpp"
 using namespace std;
 
 

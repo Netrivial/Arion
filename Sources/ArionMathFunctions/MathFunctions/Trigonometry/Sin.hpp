@@ -2,7 +2,7 @@
 
 #include "../Factorial.hpp"
 using namespace std;
-
+using namespace AMC;
 
 long double Sin(long double Value, bool IsDegree = true)
 {
