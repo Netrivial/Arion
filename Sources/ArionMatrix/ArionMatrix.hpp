@@ -39,7 +39,8 @@ namespace ArionMatrix
 		void NormalizeSize();
 
 		// setters
-		void SetVector(std::vector<double> Vector);
+		void SetVector(std::vector <double> Vector);
+
 
 		// getters
 		int GetRowSize();
@@ -97,7 +98,8 @@ namespace ArionMatrix
 		void NormalizeSize();
 
 		// setters
-		void SetVector(std::vector<double> Vector);
+		void SetVector(std::vector <double> Vector);
+
 
 		// getters
 		int GetColumnSize();
@@ -143,6 +145,7 @@ namespace ArionMatrix
 		std::vector <std::vector <double>> _Matrix;
 
 	public:
+		// Functions for working with row vectors
 
 		Matrix();
 
@@ -152,7 +155,7 @@ namespace ArionMatrix
 
 		void NormalizeSizes();
 
-		// settersя
+		// setters
 		void SetMatrix(std::vector <std::vector <double>> Matrix);
 
 		void SetRow(int Number, std::vector <double> Row); // for std::vector <double> Row
@@ -161,27 +164,36 @@ namespace ArionMatrix
 		void SetColumn(int Number, std::vector <double> Column); // for std::vector <double> Column
 		void SetColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
+		void SetElement(int RowNumber, int ColumnNumber, double Element);
+
+
 		// getters
 		int GetRowSize();
 		int GetColumnSize();
 		std::vector <int> GetSizes();
 
-		std::vector <std::vector<double>> GetMatrix();
+		std::vector <std::vector <double>> GetMatrix();
 
-		std::vector <double> GetVectorRow(int Number);
-		VectorRow GetRow(int Number);
+		std::vector <double> GetVectorRow(int Number); // for std::vector <double> Row
+		VectorRow GetRow(int Number); // for ArionMatrix::VectorRow Row
 
-		std::vector <double> GetVectorColumn(int Number);
-		VectorColumn GetColumn(int Number);
+		std::vector <double> GetVectorColumn(int Number); // for std::vector <double> Column
+		VectorColumn GetColumn(int Number); // for ArionMatrix::VectorRow Column
+
+		double GetElement(int RowNumber, int ColumnNumber);
 
 
-		void AddRow(int Number, std::vector<double> Row); // for std::vector <double> Row
+		void AddRow(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void AddRow(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
 
 		void AddColumn(int Number, std::vector<double> Column); // for std::vector <double> Column
 		void AddColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
 
-		void MatrixShow()
+		void Append(double Elemnt);
+
+		//void RemoveElement(int Number);
+
+		void MatrixShow() // or MatrixVector? 
 		{
 			for (int i = 0; i < _ColumnSize; i++)
 			{
@@ -194,15 +206,11 @@ namespace ArionMatrix
 			std::cout << std::endl;
 		}
 
-		//int GetRowSize()
-		//{
-		//	return RowSize;
-		//}
+		//void Reverse();
 
-		//int GetColumnSize()
-		//{
-		//	return ColumnSize;
-		//}
+		//void Clear();
+
+
 
 		//void Transporation()
 		//{

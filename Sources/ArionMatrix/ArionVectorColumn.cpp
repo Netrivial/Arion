@@ -5,12 +5,12 @@ using namespace ArionMatrix;
 
 // Basic functions for working with row vectors
 
-ArionMatrix::VectorColumn::VectorColumn() : _ColumnSize(AMC::MaxColumn), _Vector(AMC::MaxColumn)
+ArionMatrix::VectorColumn::VectorColumn() : _ColumnSize(0), _Vector(0)
 {
-	for (std::size_t Index = 0; Index < AMC::MaxColumn; Index++)
-	{
-		_Vector[Index] = 0;
-	}
+	//for (std::size_t Index = 0; Index < AMC::DefaultColumn; Index++)
+	//{
+	//	_Vector[Index] = 0;
+	//}
 }
 
 ArionMatrix::VectorColumn::VectorColumn(int ColumnSize) : _ColumnSize(ColumnSize), _Vector(ColumnSize)
@@ -38,7 +38,7 @@ void ArionMatrix::VectorColumn::NormalizeSize()
 
 
 // setters
-void ArionMatrix::VectorColumn::SetVector(std::vector<double> Vector)
+void ArionMatrix::VectorColumn::SetVector(std::vector <double> Vector)
 {
 	_Vector = Vector;
 	NormalizeSize();
