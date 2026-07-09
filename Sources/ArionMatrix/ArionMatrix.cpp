@@ -269,3 +269,109 @@ void ArionMatrix::Matrix::AddColumn(int Number, VectorColumn Column) // Attentio
 		throw std::exception("Index out of range of possible Matrix indices");
 	}
 }
+
+void ArionMatrix::Matrix::AppendRow(std::vector <double> Row)
+{
+	if (Row.size() != _Matrix[0].size())
+	{
+		throw std::exception("Invalid size of vector");
+	}
+
+	_Matrix.push_back(Row);
+	NormalizeSizes();
+}
+
+void ArionMatrix::Matrix::AppendRow(VectorRow Row)
+{
+	if (Row.GetRowSize() != _Matrix[0].size())
+	{
+		throw std::exception("Invalid size of vector");
+	}
+
+	_Matrix.push_back(Row.GetVector());
+	NormalizeSizes();
+}
+
+void ArionMatrix::Matrix::AppendColumn(std::vector <double> Column)
+{
+	if (Column.size() != _Matrix.size())
+	{
+		throw std::exception("Invalid size of vector");
+	}
+
+	for (size_t Index = 0; Index < _Matrix.size(); Index++)
+	{
+		_Matrix[Index].push_back(Column[Index]);
+	}
+
+	NormalizeSizes();
+}
+
+void ArionMatrix::Matrix::AppendColumn(VectorColumn Column)
+{
+	if (Column.GetColumnSize() != _Matrix.size())
+	{
+		throw std::exception("Invalid size of vector");
+	}
+
+	for (size_t Index = 0; Index < _Matrix.size(); Index++)
+	{
+		_Matrix[Index].push_back(Column.GetElement(Index + 1));
+	}
+
+	NormalizeSizes();
+}
+
+void ArionMatrix::Matrix::RemoveRow(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+{
+	try
+	{
+		_Matrix.erase(_Matrix.begin() + Number - 1);
+		NormalizeSizes();
+
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible row vector indices");
+	}
+}
+
+void ArionMatrix::Matrix::RemoveColumn(int Number) // Attention: the number is not equal to the index! (number = index + 1)
+{
+	try
+	{
+		for (size_t Index = 0; Index < _ColumnSize; Index++)
+		{
+			_Matrix[Index].erase(_Matrix[Index].begin() + Number - 1);
+		}
+		NormalizeSizes();
+	}
+	catch (const std::out_of_range& Exception)
+	{
+		throw std::exception("Index out of range of possible row vector indices");
+	}
+}
+
+void ArionMatrix::Matrix::MatrixShow()
+{
+	for (size_t ColumnIndex = 0; ColumnIndex < _ColumnSize; ColumnIndex++)
+	{
+		for (size_t RowIndex = 0; RowIndex < _RowSize; RowIndex++)
+		{
+			std::cout << _Matrix[ColumnIndex][RowIndex] << " ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+}
+
+// void ArionMatrix::Matrix::Reverse(); <- ¯\_(ツ)_/¯
+
+void ArionMatrix::Matrix::Clear()
+{
+	_Matrix = {
+		{0}
+	};
+
+	NormalizeSizes();
+}

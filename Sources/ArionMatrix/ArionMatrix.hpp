@@ -128,7 +128,7 @@ namespace ArionMatrix
 
 		void Transporation();
 		
-		double ManhattanNorm(); // L_1 norm
+		double ManhattanNorm(); // L_1 norm: ∥x∥_1, where x∈R²
 		
 		double VectorNorm(); // L_2 norm: Length of a vector
 		
@@ -162,7 +162,7 @@ namespace ArionMatrix
 		void SetRow(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
 		
 		void SetColumn(int Number, std::vector <double> Column); // for std::vector <double> Column
-		void SetColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
+		void SetColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorColumn Column
 
 		void SetElement(int RowNumber, int ColumnNumber, double Element);
 
@@ -178,7 +178,7 @@ namespace ArionMatrix
 		VectorRow GetRow(int Number); // for ArionMatrix::VectorRow Row
 
 		std::vector <double> GetVectorColumn(int Number); // for std::vector <double> Column
-		VectorColumn GetColumn(int Number); // for ArionMatrix::VectorRow Column
+		VectorColumn GetColumn(int Number); // for ArionMatrix::VectorColumn Column
 
 		double GetElement(int RowNumber, int ColumnNumber);
 
@@ -186,29 +186,23 @@ namespace ArionMatrix
 		void AddRow(int Number, std::vector <double> Row); // for std::vector <double> Row
 		void AddRow(int Number, VectorRow Row); // for ArionMatrix::VectorRow Row
 
-		void AddColumn(int Number, std::vector<double> Column); // for std::vector <double> Column
-		void AddColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorRow Column
+		void AddColumn(int Number, std::vector <double> Column); // for std::vector <double> Column
+		void AddColumn(int Number, VectorColumn Column); // for ArionMatrix::VectorColumn Column
 
-		void Append(double Elemnt);
+		void AppendRow(std::vector <double> Row); // for std::vector <double> Row
+		void AppendRow(VectorRow Row);  // for ArionMatrix::VectorColumn Colum
 
-		//void RemoveElement(int Number);
+		void AppendColumn(std::vector <double> Column); // for std::vector <double> Column
+		void AppendColumn(VectorColumn Column); // for ArionMatrix::VectorColumn Column
 
-		void MatrixShow() // or MatrixVector? 
-		{
-			for (int i = 0; i < _ColumnSize; i++)
-			{
-				for (int j = 0; j < _RowSize; j++)
-				{
-					std::cout << _Matrix[i][j] << " ";
-				}
-				std::cout << std::endl;
-			}
-			std::cout << std::endl;
-		}
+		void RemoveRow(int Number);
+		void RemoveColumn(int Number);
 
-		//void Reverse();
+		void MatrixShow(); // or ShowMatrix?
 
-		//void Clear();
+		// void Reverse(); <- idk :(
+
+		void Clear();
 
 
 

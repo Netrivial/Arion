@@ -13,3 +13,5 @@
 #include "ArionMathConsts.hpp"
 #include "ArionMatrix/ArionMatrix.hpp"
 #include "ArionMathFunctions/MathFunctions.hpp"
+
+// chars: ∂∅∈∋∉∌∆∇√∑∏∞∛∘∜∥
