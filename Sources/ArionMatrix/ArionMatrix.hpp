@@ -128,7 +128,7 @@ namespace ArionMatrix
 
 		void Transporation();
 		
-		double ManhattanNorm(); // L_1 norm: ∥x∥_1, where x∈R²
+		double ManhattanNorm(); // L_1 norm
 		
 		double VectorNorm(); // L_2 norm: Length of a vector
 		
@@ -205,42 +205,12 @@ namespace ArionMatrix
 		void Clear();
 
 
+		// Functions for working with linear transformations
 
-		//void Transporation()
-		//{
-		//	std::vector <std::vector <double>> HelpMatrix(RowSize, std::vector <double>(ColumnSize));
+		void Transporation();
 
-		//	for (int i = 0; i < RowSize; i++)
-		//	{
-		//		for (int j = 0; j < ColumnSize; j++)
-		//		{
-		//			HelpMatrix[i][j] = _Matrix[j][i];
-		//		}
-		//	}
+		double GetDeterminant(); // Exception: for matrix with _RowSize = _ColumnSize
 
-		//	_Matrix.resize(RowSize);
-		//	_Matrix[0].resize(ColumnSize);
-		//	_Matrix = HelpMatrix;
-
-		//	NormalizeSizes();
-		//}
-
-		//double GetDeterminant()
-		//{
-		//	setlocale(LC_ALL, "Russian");
-
-		//	if (RowSize != ColumnSize || RowSize == 0 || ColumnSize == 0)
-		//	{
-		//		std::cout << "Ìàòðèöà íå êâàäðàòíàÿ! (áóäåò âîçðàùåíà -1)" << std::endl << std::endl;
-		//		return -1.0;
-		//	}
-
-		//	return ArionMatrix::Determinant(_Matrix);
-		//}
-
-		//int GetRank()
-		//{
-		//	return ArionMatrix::Rank(_Matrix);
-		//}
+		int GetRank();
 	};
 }

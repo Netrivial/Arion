@@ -126,7 +126,7 @@ int ArionMatrix::Matrix::GetColumnSize()
 	return _ColumnSize;
 }
 
-std::vector <int> ArionMatrix::Matrix::GetSizes()
+std::vector <int> ArionMatrix::Matrix::GetSizes() // { col, row }
 {
 	std::vector<int> Sizes = { _ColumnSize, _RowSize };
 	return Sizes;
@@ -374,4 +374,38 @@ void ArionMatrix::Matrix::Clear()
 	};
 
 	NormalizeSizes();
+}
+
+
+// Functions for working with linear transformations
+
+void ArionMatrix::Matrix::Transporation()
+{
+	std::vector <std::vector <double>> TempMatrix(_RowSize, std::vector <double>(_ColumnSize));
+
+	for (int RowIndex = 0; RowIndex < _RowSize; RowIndex++)
+	{
+		for (int ColumnIndex = 0; ColumnIndex < _ColumnSize; ColumnIndex++)
+		{
+			TempMatrix[RowIndex][ColumnIndex] = _Matrix[ColumnIndex][RowIndex];
+		}
+	}
+
+	_Matrix.swap(TempMatrix);
+	std::swap(_RowSize, _ColumnSize);
+}
+
+double ArionMatrix::Matrix::GetDeterminant() // Exception: for matrix with _RowSize = _ColumnSize
+{
+	if (_RowSize != _ColumnSize || (_RowSize == 0 || _ColumnSize == 0))
+	{
+		throw std::exception("Row size is not equal to column size");
+	}
+
+	return ArionMatrix::Determinant(_Matrix);
+}
+
+int ArionMatrix::Matrix::GetRank()
+{
+	return ArionMatrix::Rank(_Matrix);
 }

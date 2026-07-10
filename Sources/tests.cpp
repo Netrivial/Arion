@@ -39,6 +39,7 @@ int main()
 
 	m.AppendRow(TempRow);
 	m.MatrixShow();
+	cout << m.GetDeterminant() << endl << endl;
 	m.AppendColumn(TempRow.GetVector());
 	m.MatrixShow();
 
@@ -55,9 +56,18 @@ int main()
 	m.AppendColumn(Temp);
 	m.MatrixShow();
 	m.AppendRow({ 1, 3 });
+	cout << m.GetDeterminant() << endl << endl;
+	cout << m.GetRank() << endl << endl;
 	m.MatrixShow();
 	m.AppendColumn({ 4, 5 });
 	m.MatrixShow();
+	cout << m.GetSizes()[0] << " " << m.GetSizes()[1] << endl << endl;
+
+	m.Transporation();
+	m.MatrixShow();
+
+	cout << m.GetSizes()[0] << " " << m.GetSizes()[1] << endl << endl;
+	cout << m.GetRank() << endl << endl;
 
 	return 0;
 }
