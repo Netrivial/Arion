@@ -1,24 +1,36 @@
-cmake_minimum_required(VERSION 3.31.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.15)
+project(ArionMath VERSION 0.1.0 LANGUAGES CXX)
 
-project(Arion VERSION 0.1.3)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-add_executable(Arion 
-			Sources/main.cpp
-			Sources/Arion.hpp 
-			Sources/ArionMathConsts.hpp
-			Sources/ArionMatrix/ArionMatrix.hpp
-			Sources/ArionMatrix/ArionVectorRow.cpp
-			Sources/ArionMatrix/ArionVectorColumn.cpp
-			Sources/ArionMatrix/ArionMatrix.cpp
-			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixDeterminant.cpp
-			Sources/ArionMatrix/ArionMatrixFunctions/ArionMatrixRank.cpp
-			Sources/ArionMathFunctions/MathFunctions.hpp
-			Sources/ArionMathFunctions/MathFunctions/Factorial.hpp
-			Sources/ArionMathFunctions/MathFunctions/Subfactorial.hpp
-			Sources/ArionMathFunctions/MathFunctions/Exp.hpp
-			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Sin.hpp
-			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Cos.hpp
-			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Tan.hpp
-   			Sources/ArionMathFunctions/MathFunctions/Trigonometry/Ctg.hpp 
-			Sources/tests.cpp
-			Sources/ArionMatrix/temp.cpp)
+set(SOURCES
+    src/Fraction/Fraction.cpp
+)
+
+if(NOT SOURCES)
+    set(SOURCES src/Stub.cpp)
+endif()
+
+add_library(ArionMath ${SOURCES})
+
+target_include_directories(ArionMath
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+target_compile_features(ArionMath PUBLIC cxx_std_17)
+
+file(GLOB_RECURSE HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
+target_sources(ArionMath PUBLIC ${HEADER_FILES})
+
+# attentions
+if(MSVC)
+    target_compile_options(ArionMath PRIVATE /W4)
+else()
+    target_compile_options(ArionMath PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+# tests
+enable_testing()
+add_subdirectory(tests)
