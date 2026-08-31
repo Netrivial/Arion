@@ -1,0 +1,3 @@
+add_executable(test_fraction test_fraction.cpp)
+target_link_libraries(test_fraction PRIVATE Arion)
+add_test(NAME fraction_tests COMMAND test_fraction)
