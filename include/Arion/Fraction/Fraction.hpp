@@ -34,12 +34,11 @@ namespace Arion {
 				// Other functions
 			double Division() const noexcept;
 			void Reducing();
-			void Show() const;
 
 
 				// Operations with fracions
-			friend std::ostream& operator<<(std::ostream& os, const Fraction& f) {
-				os << f.Numerator << "/" << f.Denominator;
+			friend std::ostream& operator<<(std::ostream& os, const Fraction& frac) {
+				os << frac.Numerator << "/" << frac.Denominator;
 				return os;
 			}
 
@@ -78,26 +77,41 @@ namespace Arion {
 			Fraction operator*(Fraction other);
 
 			template <typename T>
-			friend auto operator*(const Fraction& frac, const T&) {
-				return frac.Numerator * T / frac.Denominator;
+			friend auto operator*(const Fraction& frac, const T& other) {
+				return frac.Numerator * other / frac.Denominator;
 			}
 
 			template <typename T>
-			friend auto operator*(const T&, const Fraction& frac) {
-				return frac.Numerator * T / frac.Denominator;
+			friend auto operator*(const T& other, const Fraction& frac) {
+				return frac.Numerator * other / frac.Denominator;
 			}
 
 			Fraction operator/(Fraction other);
 
 			template <typename T>
-			friend auto operator/(const Fraction& frac, const T&) {
-				frac.Numerator / (frac.Denominator * T);
+			friend auto operator/(const Fraction& frac, const T& other) {
+				return frac.Numerator / (frac.Denominator * other);
 			}
 
 			template <typename T>
-			friend auto operator/(const T&, const Fraction& frac) {
-				T * frac.Numerator 
+			friend auto operator/(const T& other, const Fraction& frac) {
+				return other * frac.Denominator / frac.Numerator;
 			}
+
+
+			bool operator==(Fraction other);
+
+			template <typename T>
+			friend bool operator==(Fraction& frac, const T& other) {
+				return frac.Division() == other;
+			}
+
+			template <typename T>
+			friend bool operator==(const T& other, Fraction& frac) {
+				return frac.Division() == other;
+			}
+
+			bool operator!=(Fraction other);
 		};
 
 		template <typename T>
