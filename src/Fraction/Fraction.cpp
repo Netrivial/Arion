@@ -1,4 +1,5 @@
 #include <Arion/Fraction/Fraction.hpp>
+#include <Arion/Consts.hpp>
 
 namespace Arion {
 	namespace Fraction {
@@ -56,19 +57,29 @@ namespace Arion {
 		}
 
 		void Fraction::Reducing() {
-			while (std::floor(Numerator) != Numerator || std::floor(Denominator) != Denominator) {
-				Numerator *= 10;
-				Denominator *= 10;
+			double num = std::abs(Numerator);
+			double den = std::abs(Denominator);
+
+			while (std::abs(num - std::round(num)) > Consts::doubleEps || std::abs(den - std::round(den)) > Consts::doubleEps) {
+				num *= 10.0;
+				den *= 10.0;
 			}
 
-			auto gcd = std::gcd(std::abs((int)Numerator), std::abs((int)Denominator));
+			long long int_n = std::round(num);
+			long long int_d = std::round(den);
+
+			long long gcd = std::gcd(int_n, int_d);
+
+			//while (std::floor(Numerator) != Numerator || std::floor(Denominator) != Denominator) {
+			//	Numerator *= 10;
+			//	Denominator *= 10;
+			//}
+
+			//auto gcd = std::gcd(std::abs((int)Numerator), std::abs((int)Denominator));
 			Numerator /= gcd;
 			Denominator /= gcd;
 		}
 
-		void Fraction::Show() const {
-			std::cout << Numerator << "/" << Denominator << std::endl;
-		}
 
 		// Operations with fracions
 		Fraction& Fraction::operator=(const Fraction& other)
@@ -122,6 +133,22 @@ namespace Arion {
 			};
 			tempFrac.Reducing();
 			return tempFrac;
+		}
+
+		Fraction Fraction::operator*(Fraction other) {
+			Fraction frac{ this->Numerator * other.Numerator, this->Denominator * other.Denominator };
+			// frac.Reducing();
+			return frac;
+		}
+
+		Fraction Fraction::operator/(Fraction other) {
+			Fraction frac{ this->Numerator * other.Denominator, this->Denominator * other.Numerator };
+			// frac.Reducing();
+			return frac;
+		}
+
+		bool Fraction::operator==(Fraction other) {
+			return this->Numerator / this->Denominator == other.Division();
 		}
 	}
 }

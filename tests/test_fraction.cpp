@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <iomanip>
 #include <Arion/Fraction/Fraction.hpp>
 
 int main() {
@@ -41,8 +42,8 @@ int main() {
     int tempInt = 8;
     double tempDouble = 3.5;
 
-    Fraction::Fraction fracFromInt { Fraction::GetFraction<double>(tempInt) };
-    fracFromInt.Show();
+    Fraction::Fraction fracFromInt{ Fraction::GetFraction<double>(tempInt) };
+    std::cout << fracFromInt << std::endl;
     //fracFromInt.Reducing();
     //fracFromInt.Show();
     //std::cout << fracFromInt.GetNumerator() << std::endl;
@@ -50,8 +51,8 @@ int main() {
     //std::cout << fracFromInt.Division() << std::endl;
     //std::cout << std::endl << std::endl;
 
-    Fraction::Fraction fracFromDouble{ Fraction::GetFraction(tempDouble)};
-    fracFromDouble.Show();
+    Fraction::Fraction fracFromDouble{ Fraction::GetFraction(tempDouble) };
+    std::cout << fracFromDouble << std::endl;
     std::cout << std::endl;
     //fracFromDouble.Reducing();
     //fracFromDouble.Show();
@@ -61,29 +62,35 @@ int main() {
     //std::cout << std::endl << std::endl;
 
     fracFromInt = -fracFromInt;
-    fracFromInt.Show();
+    std::cout << fracFromInt << std::endl;
     std::cout << std::endl;
 
     fracFromInt++;
-    fracFromInt.Show();
+    std::cout << fracFromInt << std::endl;
     fracFromDouble--;
-    fracFromDouble.Show();
+    std::cout << fracFromDouble << std::endl;
     fracFromDouble++;
-    fracFromDouble.Show();
+    std::cout << fracFromDouble << std::endl;;
 
     std::cout << std::endl;
 
     fracFromDouble.Reducing();
-    fracFromDouble.Show();
+    std::cout << fracFromDouble << std::endl;
     fracFromDouble--;
-    fracFromDouble.Show();
+    std::cout << fracFromDouble << std::endl;
 
     std::cout << std::endl;
 
     Fraction::Fraction sumOfFracs{ fracFromInt + fracFromDouble };
-    sumOfFracs.Show();
+    std::cout << sumOfFracs << std::endl;
     std::cout << sumOfFracs.Division() << std::endl;
     std::cout << sumOfFracs.Division() + fracFromDouble - fracFromInt << std::endl;
+
+    Fraction::Fraction value{ 3, -2 };
+    Fraction::Fraction someVal = Fraction::GetFraction((fracFromInt - fracFromDouble + fracFromDouble * fracFromInt - 2 * value) / (9 / (value / 3)));
+    std::cout << someVal / value << std::endl;
+    std::cout << (someVal / value).Division() << std::endl;
+    // yo -> std::setprecision(15)
 
     return 0;
 }
