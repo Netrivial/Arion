@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <cmath>
 #include <numeric>
+#include <Arion/Consts.hpp>
 
 namespace Arion {
 	namespace Fraction {
@@ -14,7 +15,7 @@ namespace Arion {
 			double Denominator;
 
 		public:
-				// Constructors
+			// Constructors
 			Fraction() = delete;
 			Fraction(double Numerator, double Denominator);
 			Fraction(const Fraction& other);
@@ -26,29 +27,35 @@ namespace Arion {
 			void SetDenominator(double Denominator);
 
 
-				// Getters
+			// Getters
 			double GetNumerator() const;
 			double GetDenominator() const;
 
 
-				// Other functions
+			// Other functions
 			double Division() const noexcept;
 			void Reducing();
+			void Pow(double Power);
+
+			void MultiplyBoth(double factor);
+			void DivideBoth(double divisor);
 
 
-				// Operations with fracions
+			// Operations with fracions
 			friend std::ostream& operator<<(std::ostream& os, const Fraction& frac) {
 				os << frac.Numerator << "/" << frac.Denominator;
 				return os;
 			}
 
+
 			Fraction& operator=(const Fraction& other);
-			
+
 			Fraction operator-() const;
 			Fraction& operator++();
 			Fraction operator++(int);
 			Fraction& operator--();
 			Fraction operator--(int);
+
 
 			Fraction operator+(Fraction other);
 
@@ -62,6 +69,7 @@ namespace Arion {
 				return frac.Division() + other;
 			}
 
+
 			Fraction operator-(Fraction other);
 
 			template <typename T>
@@ -74,6 +82,7 @@ namespace Arion {
 				return other - frac.Division();
 			}
 
+
 			Fraction operator*(Fraction other);
 
 			template <typename T>
@@ -85,6 +94,7 @@ namespace Arion {
 			friend auto operator*(const T& other, const Fraction& frac) {
 				return frac.Numerator * other / frac.Denominator;
 			}
+
 
 			Fraction operator/(Fraction other);
 
@@ -99,19 +109,82 @@ namespace Arion {
 			}
 
 
-			bool operator==(Fraction other);
+			bool operator==(Fraction other) const;
 
 			template <typename T>
-			friend bool operator==(Fraction& frac, const T& other) {
-				return frac.Division() == other;
+			friend bool operator==(const Fraction& frac, const T& other) {
+				return std::abs(frac.Division() - other) < Consts::doubleEps;
 			}
 
 			template <typename T>
-			friend bool operator==(const T& other, Fraction& frac) {
-				return frac.Division() == other;
+			friend bool operator==(const T& other, const Fraction& frac) {
+				return std::abs(frac.Division() - other) < Consts::doubleEps;
 			}
 
-			bool operator!=(Fraction other);
+
+			bool operator!=(Fraction other) const;
+
+			template <typename T>
+			friend bool operator!=(const Fraction& frac, const T& other) {
+				return std::abs(frac.Division() - other) > Consts::doubleEps;
+			}
+
+			template <typename T>
+			friend bool operator!=(const T& other, const Fraction& frac) {
+				return std::abs(frac.Division() - other) > Consts::doubleEps;
+			}
+
+
+			bool operator<(Fraction other) const;
+
+			template <typename T>
+			friend bool operator<(const Fraction& frac, const T& other) {
+				return frac.Division() < other;
+			}
+
+			template <typename T>
+			friend bool operator<(const T& other, const Fraction& frac) {
+				return other < frac.Division();
+			}
+
+
+			bool operator<=(Fraction frac) const;
+
+			template <typename T>
+			friend bool operator<=(const Fraction& frac, const T& other) {
+				return frac.Division() <= other;
+			}
+
+			template <typename T>
+			friend bool operator<=(const T& other, const Fraction& frac) {
+				return other <= frac.Division();
+			}
+
+
+			bool operator>(Fraction frac) const;
+
+			template <typename T>
+			friend bool operator>(const Fraction& frac, const T& other) {
+				return frac.Division() > other;
+			}
+
+			template <typename T>
+			friend bool operator>(const T& other, const Fraction& frac) {
+				return other > frac.Division();
+			}
+
+
+			bool operator>=(Fraction other) const;
+
+			template <typename T>
+			friend bool operator>=(const Fraction& frac, const T& other) {
+				return frac.Division() >= other;
+			}
+
+			template <typename T>
+			friend bool operator>=(const T& other, const Fraction& frac) {
+				return other >= frac.Division();
+			}
 		};
 
 		template <typename T>
