@@ -1,13 +1,12 @@
 #include <Arion/Fraction/Fraction.hpp>
-#include <Arion/Consts.hpp>
 
 namespace Arion {
 	namespace Fraction {
 
 		// Constructs
 		Fraction::Fraction(double Numerator, double Denominator) : Numerator(Numerator), Denominator(Denominator) {
-			if (Denominator == 0.f) {
-				throw std::exception("The denominator can't be equal to 0");
+			if (Denominator == 0) {
+				throw std::invalid_argument("The denominator can't be equal to 0");
 			}
 
 			if (Denominator < 0) {
@@ -28,7 +27,7 @@ namespace Arion {
 
 		void Fraction::SetDenominator(double Denominator) {
 			if (Denominator == 0) {
-				throw std::exception("The denominator can't be equal to 0");
+				throw std::invalid_argument("The denominator can't be equal to 0");
 			}
 
 			if (Denominator < 0) {
@@ -59,25 +58,48 @@ namespace Arion {
 		void Fraction::Reducing() {
 			double num = std::abs(Numerator);
 			double den = std::abs(Denominator);
+			double sign = (Numerator < 0) ? -1.0 : 1.0;
 
-			while (std::abs(num - std::round(num)) > Consts::doubleEps || std::abs(den - std::round(den)) > Consts::doubleEps) {
+			const int maxIterations = 15;
+			int iter = 0;
+			while ((std::abs(num - std::round(num)) > Consts::doubleEps ||
+					std::abs(den - std::round(den)) > Consts::doubleEps)
+					&& iter < maxIterations) {
 				num *= 10.0;
 				den *= 10.0;
+				++iter;
 			}
 
-			long long int_n = std::round(num);
-			long long int_d = std::round(den);
+			long long intNum = std::llround(num);
+			long long intDen = std::llround(den);
+			if (intDen == 0) {
+				return;
+			}
 
-			long long gcd = std::gcd(int_n, int_d);
+			long long gcd = std::gcd(intNum, intDen);
+			Numerator = sign * (static_cast<double>(intNum) / gcd);
+			Denominator = static_cast<double>(intDen) / gcd;
+		}
 
-			//while (std::floor(Numerator) != Numerator || std::floor(Denominator) != Denominator) {
-			//	Numerator *= 10;
-			//	Denominator *= 10;
-			//}
+		void Fraction::Pow(double Power) {
+			Numerator = std::pow(Numerator, Power);
+			Denominator = std::pow(Denominator, Power);
+		}
 
-			//auto gcd = std::gcd(std::abs((int)Numerator), std::abs((int)Denominator));
-			Numerator /= gcd;
-			Denominator /= gcd;
+		void Fraction::MultiplyBoth(double factor) {
+			if (factor == 0) {
+				throw std::invalid_argument("Factor cannot be zero");
+			}
+			Numerator *= factor;
+			Denominator *= factor;
+		}
+
+		void Fraction::DivideBoth(double divisor) {
+			if (divisor == 0) {
+				throw std::invalid_argument("Divisor cannot be zero");
+			}
+			Numerator /= divisor;
+			Denominator /= divisor;
 		}
 
 
@@ -123,7 +145,6 @@ namespace Arion {
 			Fraction tempFrac{ this->Numerator * other.Denominator + other.Numerator * this->Denominator,
 								this->Denominator * other.Denominator
 			};
-			tempFrac.Reducing();
 			return tempFrac;
 		}
 
@@ -131,7 +152,6 @@ namespace Arion {
 			Fraction tempFrac{ this->Numerator * other.Denominator - other.Numerator * this->Denominator,
 								this->Denominator * other.Denominator
 			};
-			tempFrac.Reducing();
 			return tempFrac;
 		}
 
@@ -147,8 +167,28 @@ namespace Arion {
 			return frac;
 		}
 
-		bool Fraction::operator==(Fraction other) {
-			return this->Numerator / this->Denominator == other.Division();
+		bool Fraction::operator==(Fraction other) const {
+			return std::abs(this->Division() - other.Division()) < Consts::doubleEps;
+		}
+
+		bool Fraction::operator!=(Fraction other) const {
+			return std::abs(this->Division() - other.Division()) > Consts::doubleEps;
+		}
+
+		bool Fraction::operator<(Fraction other) const {
+			return this->Division() < other.Division();
+		}
+
+		bool Fraction::operator<=(Fraction other) const {
+			return this->Division() <= other.Division();
+		}
+
+		bool Fraction::operator>(Fraction other) const {
+			return this->Division() > other.Division();
+		}
+
+		bool Fraction::operator>=(Fraction other) const {
+			return this->Division() >= other.Division();
 		}
 	}
 }
